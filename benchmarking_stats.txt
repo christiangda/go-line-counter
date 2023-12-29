@@ -1,0 +1,25 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/christiangda/go-line-counter
+BenchmarkScannerLineCounter-10           	    1000	     10102 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkScannerLineCounter-10           	    1000	     10555 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkScannerLineCounter-10           	    1000	     10039 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkScannerLineCounter-10           	    1000	     10178 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkScannerLineCounter-10           	    1000	     10344 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkJimBLineCounter-10              	    1000	      4961 ns/op	   32768 B/op	       1 allocs/op
+BenchmarkJimBLineCounter-10              	    1000	      5242 ns/op	   32768 B/op	       1 allocs/op
+BenchmarkJimBLineCounter-10              	    1000	      5440 ns/op	   32768 B/op	       1 allocs/op
+BenchmarkJimBLineCounter-10              	    1000	      5033 ns/op	   32768 B/op	       1 allocs/op
+BenchmarkJimBLineCounter-10              	    1000	      5224 ns/op	   32768 B/op	       1 allocs/op
+BenchmarkDanielCastilloLineCounter-10    	    1000	     12453 ns/op	   65536 B/op	       1 allocs/op
+BenchmarkDanielCastilloLineCounter-10    	    1000	     11474 ns/op	   65536 B/op	       1 allocs/op
+BenchmarkDanielCastilloLineCounter-10    	    1000	     11417 ns/op	   65536 B/op	       1 allocs/op
+BenchmarkDanielCastilloLineCounter-10    	    1000	     11499 ns/op	   65536 B/op	       1 allocs/op
+BenchmarkDanielCastilloLineCounter-10    	    1000	     11866 ns/op	   65538 B/op	       1 allocs/op
+BenchmarkFuzLineCounter-10               	    1000	     12312 ns/op	    8192 B/op	       1 allocs/op
+BenchmarkFuzLineCounter-10               	    1000	     12000 ns/op	    8192 B/op	       1 allocs/op
+BenchmarkFuzLineCounter-10               	    1000	     11893 ns/op	    8192 B/op	       1 allocs/op
+BenchmarkFuzLineCounter-10               	    1000	     11543 ns/op	    8192 B/op	       1 allocs/op
+BenchmarkFuzLineCounter-10               	    1000	     11860 ns/op	    8192 B/op	       1 allocs/op
+PASS
+ok  	github.com/christiangda/go-line-counter	0.715s
