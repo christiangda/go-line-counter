@@ -121,8 +121,11 @@ Do you know a faster way to count the number of lines in a file? If so, please, 
 ## Test Data
 
 __File:__ [www.stats.govt.nz-> Subnational-period-life-tables-2017-2019-CSV.csv](https://www.stats.govt.nz/assets/Uploads/National-and-subnational-period-life-tables/National-and-subnational-period-life-tables-2017-2019/Download-data/Subnational-period-life-tables-2017-2019-CSV.csv)
+
 __Number of lines:__ 255,361 (wc -l testdata/Subnational-period-life-tables-2017-2019-CSV.csv)
+
 __Number of words:__ 1,713,361 (wc -w testdata/Subnational-period-life-tables-2017-2019-CSV.csv)
+
 __Size:__  22,551,849 bytes (22.6 MB on disk) (ls -lh testdata/Subnational-period-life-tables-2017-2019-CSV.csv)
 
 ## License
