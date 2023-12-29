@@ -9,13 +9,20 @@ import (
 // Counter is the interface that wraps the basic Count method.
 // and any type that implements this interface can be used as a counter
 type Counter interface {
-	Count(io.Reader) (int, error)
+	Count(io.ReadSeeker) (int, error)
 }
 
 // ScannerLineCounter counts the number of lines in a file using bufio.Scanner
 type ScannerLineCounter struct{}
 
-func (s *ScannerLineCounter) Count(r io.Reader) (int, error) {
+func (s *ScannerLineCounter) Count(r io.ReadSeeker) (int, error) {
+	defer func() {
+		_, err := r.Seek(0, io.SeekStart)
+		if err != nil {
+			panic(err)
+		}
+	}()
+
 	scanner := bufio.NewScanner(r)
 	scanner.Split(bufio.ScanLines) // this was my modification
 
@@ -33,7 +40,14 @@ type JimBLineCounter struct {
 	Sep  string // End of line character
 }
 
-func (b *JimBLineCounter) Count(r io.Reader) (int, error) {
+func (b *JimBLineCounter) Count(r io.ReadSeeker) (int, error) {
+	defer func() {
+		_, err := r.Seek(0, io.SeekStart)
+		if err != nil {
+			panic(err)
+		}
+	}()
+
 	defaultSize := 32 * 1024
 	defaultEndLine := "\n"
 
@@ -69,7 +83,14 @@ type DanielCastilloLineCounter struct {
 	Sep  string // End of line character
 }
 
-func (b *DanielCastilloLineCounter) Count(r io.Reader) (int, error) {
+func (b *DanielCastilloLineCounter) Count(r io.ReadSeeker) (int, error) {
+	defer func() {
+		_, err := r.Seek(0, io.SeekStart)
+		if err != nil {
+			panic(err)
+		}
+	}()
+
 	defaultSize := bufio.MaxScanTokenSize
 	defaultEndLine := "\n"
 
@@ -117,7 +138,14 @@ type FuzLineCounter struct {
 }
 
 // Count counts the number of lines in a file using io.Reader
-func (b *FuzLineCounter) Count(r io.Reader) (int, error) {
+func (b *FuzLineCounter) Count(r io.ReadSeeker) (int, error) {
+	defer func() {
+		_, err := r.Seek(0, io.SeekStart)
+		if err != nil {
+			panic(err)
+		}
+	}()
+
 	defaultSize := 8 * 1024
 	defaultEndLine := "\n"
 

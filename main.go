@@ -11,7 +11,7 @@ import (
 
 // CountLines helper function to count the number of lines in a file
 // using the given algorithm
-func CountLines(c algorithms.Counter, r io.Reader) (int, error) {
+func CountLines(c algorithms.Counter, r io.ReadSeeker) (int, error) {
 	tStart := time.Now()
 	defer func() {
 		fmt.Printf("CountLines took %s  -> ", time.Since(tStart))
@@ -36,12 +36,6 @@ func main() {
 	defer file.Close()
 
 	for name, algo := range algos {
-
-		// Reset the file pointer to the beginning of the file
-		_, err = file.Seek(0, io.SeekStart)
-		if err != nil {
-			fmt.Println(err)
-		}
 
 		lines, err := CountLines(algo, file)
 		if err != nil {
